@@ -6,8 +6,7 @@ const router = express.Router();
 const NewsItem = require('../models/News');
 
 // Get all news
-// Protected via facebook authentication. Works only from browser
-router.get('/', passport.authenticate('facebook'), async (req, res) => {
+router.get('/', async (req, res) => {
   const items = await NewsItem.find();
   res.json(items);
 });
